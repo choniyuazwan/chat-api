@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+[
+    {username: 'budi', password: 'aaaaaa', fullname: 'budi handuk'},
+    {username: 'tono', password: 'aaaaaa', fullname: 'tono sucipto'},
+    {username: 'andi', password: 'aaaaaa', fullname: 'andi malarangeng'},
+    {username: 'dodo', password: 'aaaaaa', fullname: 'dodo widodo'}
+].each do |attributes|
+  User.find_or_initialize_by(username: attributes[:username]).update!(attributes)
+end
