@@ -23,6 +23,6 @@ class ApplicationController < ActionController::API
   end
 
   def invalid_authentication
-    render json: { error: 'You will need to login first' }, status: :unauthorized
+    render json: CommonRepresenter.new(code: 401, message: "You will need to login first").as_json, status: :unauthorized
   end
 end

@@ -23,6 +23,6 @@ class AuthenticationTokenService
   end
 
   def self.expired_token
-    render json: { error: 'Expired token! login again' }, status: :unauthorized
+    render json: CommonRepresenter.new(code: 401, message: "Expired token! login again").as_json, status: :unauthorized
   end
 end
