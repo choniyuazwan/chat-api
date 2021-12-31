@@ -1,24 +1,58 @@
-# README
+#### About
+Rest API for personal conversation between one person and another
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Database Design
+![image](https://github.com/choniyuazwan/chat-api/blob/master/public/database-design.png?raw=true)
 
-Things you may want to cover:
+#### 1. register
+```
+post: chat-api-ruby.herokuapp.com/register
+```
+##### request body
+```
+{
+    "username": "dora",
+    "password": "aaaaaa",
+    "fullname": "dora emon"
+} 
+```
 
-* Ruby version
+#### 2. login
+```
+post: chat-api-ruby.herokuapp.com/login
+```
+##### request body
+```
+{
+    "username": "dora",
+    "password": "aaaaaa"
+} 
+```
 
-* System dependencies
+#### 3. list conversation
+```
+get: chat-api-ruby.herokuapp.com/conversations
+```
+##### request header
+`Authorization: Bearer {token}`
 
-* Configuration
+#### 4. list message
+```
+get: chat-api-ruby.herokuapp.com/messages/:id_recipient
+```
+##### request header
+`Authorization: Bearer {token}`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### 5. create message
+```
+post: chat-api-ruby.herokuapp.com/messages
+```
+##### request body
+```
+{
+	"recipient_id": 2,
+	"content": "dari dora"
+} 
+```
+##### request header
+`Authorization: Bearer {token}`
