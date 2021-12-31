@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Message.destroy_all
+Conversation.destroy_all
+User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('messages')
+ActiveRecord::Base.connection.reset_pk_sequence!('conversations')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
 [
     {username: 'budi', password: 'aaaaaa', fullname: 'budi handuk'},
     {username: 'tono', password: 'aaaaaa', fullname: 'tono sucipto'},
@@ -14,5 +21,5 @@
     {username: 'anto', password: 'aaaaaa', fullname: 'anto winaryo'},
     {username: 'sari', password: 'aaaaaa', fullname: 'sari awan'}
 ].each do |attributes|
-  User.find_or_initialize_by(username: attributes[:username]).update!(attributes)
+  User.create(attributes)
 end
