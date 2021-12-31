@@ -10,7 +10,9 @@
     {username: 'budi', password: 'aaaaaa', fullname: 'budi handuk'},
     {username: 'tono', password: 'aaaaaa', fullname: 'tono sucipto'},
     {username: 'andi', password: 'aaaaaa', fullname: 'andi malarangeng'},
-    {username: 'dodo', password: 'aaaaaa', fullname: 'dodo widodo'}
+    {username: 'dodo', password: 'aaaaaa', fullname: 'dodo widodo'},
+    {username: 'anto', password: 'aaaaaa', fullname: 'anto winaryo'},
+    {username: 'sari', password: 'aaaaaa', fullname: 'sari awan'}
 ].each do |attributes|
   User.find_or_initialize_by(username: attributes[:username]).update!(attributes)
 end
