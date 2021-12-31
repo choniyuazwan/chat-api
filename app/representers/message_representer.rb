@@ -6,14 +6,16 @@ class MessageRepresenter
   def as_json(list = false)
     list ? data.map do |item| {
         id: item.id,
-        conversation_id: item.conversation_id,
         content: item.content,
+        type: item.type,
         is_read: item.is_read,
+        created_at: item.created_at
     } end : {
         id: data.id,
-        conversation_id: data.conversation_id,
         content: data.content,
+        type: data.type || 'outgoing',
         is_read: data.is_read,
+        created_at: data.created_at
     }
   end
   
